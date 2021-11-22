@@ -12,5 +12,6 @@ plugins:
 tagline: The truly static, Git-based wiki project
 title: HAM
 theme: jekyll-ham
+url: ./
 readme_index:
   with_frontmatter: true
