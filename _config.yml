@@ -1,20 +1,16 @@
 ham:
-  site_name: HAM
-  site_tagline: The truly static, Git-based wiki project
   site_icon: https://raw.githubusercontent.com/googlefonts/noto-emoji/main/svg/emoji_u1f969.svg
-  contributing:
-    discuss:
-      type: url
-      url: https://github.com/reinhart1010/HAM/discussions/
-    view_source_base_url: https://github.com/reinhart1010/HAM/blob/main/
-    issue_url: https://github.com/reinhart1010/HAM/issues/
+highlighter: rouge
 kramdown:
   input: GFM
+  syntax_highlighter: rouge
 plugins:
   - jekyll-readme-index
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-titles-from-headings
+tagline: The truly static, Git-based wiki project
+title: HAM
 theme: jekyll-ham
 readme_index:
   with_frontmatter: true

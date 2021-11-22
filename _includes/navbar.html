@@ -7,11 +7,11 @@
   </div>
   <a href="/" class="navbar-brand">
     {% if site.ham.site_icon != null %}
-      <img src="{{ site.ham.site_icon }}" alt="{{ site.ham.site_name }}">
-    {% endif %}{{ site.ham.site_name }}
+      <img src="{{ site.ham.site_icon }}" alt="{{ site.title }}">
+    {% endif %}{{ site.title }}
   </a>
-  {% if site.ham.site_tagline != null %}
-    <span class="navbar-text d-none d-sm-block">{{ site.ham.site_tagline }}</span> <!-- text-monospace = font-family shifted to monospace -->
+  {% if site.tagline != null %}
+    <span class="navbar-text d-none d-sm-block">{{ site.tagline }}</span> <!-- text-monospace = font-family shifted to monospace -->
   {% endif %}
   <div class="ml-auto">
     <button onClick="halfmoon.toggleDarkMode()" class="btn btn-action bg-dark-lm bg-white-dm text-white-lm text-dark-dm">

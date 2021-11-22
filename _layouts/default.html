@@ -9,17 +9,18 @@
 
   <!-- Favicon and title -->
   <link rel="icon" href="{{ site.ham.site_favicon | default: site.ham.site_icon }}">
-  <title>{{ page.title }} - {{ site.ham.site_title }}</title>
+  <title>{{ page.title }} - {{ site.title }}</title>
 
   <!-- Halfmoon CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" />
+  <link href="{{ site.url }}/assets/halfmoon-variables.min.css" rel="stylesheet" />
 
   <!-- Bootstrap Icons CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="{{ site.url }}/assets/bootstrap-icons.min.css" rel="stylesheet" />
   
   <!-- Additional CSS -->
-  <link href="/assets/default.css" rel="stylesheet" />
-  <link href="/assets/main.css" rel="stylesheet" />
+  <link href="{{ site.url }}/assets/default.css" rel="stylesheet" />
+  <link href="{{ site.url }}/assets/main.css" rel="stylesheet" />
+  <link href="{{ site.url }}/assets/syntax-highlighter.css" rel="stylesheet" />
 
 </head>
 <body class="with-custom-webkit-scrollbars with-custom-css-scrollbars" data-dm-shortcut-enabled="true" data-sidebar-shortcut-enabled="true" data-set-preferred-mode-onload="true">
@@ -37,15 +38,15 @@
   </div>
 
   <!-- Simple Jekyll Search JS -->
-  <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+  <script src="{{ site.url }}/assets/simple-jekyll-search.min.js"></script>
   <script>
     var sjs = SimpleJekyllSearch({
       searchInput: document.getElementById('search-input'),
       resultsContainer: document.getElementById('results-container'),
-      json: '/search.json'
+      json: '{{ site.url }}/search.json'
     })
   </script>
   <!-- Halfmoon JS -->
-  <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
+  <script src="{{ site.url }}/assets/halfmoon.min.js"></script>
 </body>
 </html>
