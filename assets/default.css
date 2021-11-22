@@ -1,0 +1,36 @@
+:root {
+  --font-family-serif: 'Linux Libertine', 'Linux Libertine Display O', Georgia, 'Noto Serif', 'Times New Roman', Times, serif;
+  --heading-font-weight: 700;
+}
+
+/* Use serif font for headings (a-la MediaWiki) */
+.article-wrapper h1, .article-wrapper h2, .content-wrapper .h1, .content-wrapper .h2 {
+  font-family: var(--font-family-serif);
+  font-weight: 400;
+}
+.article-sitesub {
+  font-family: var(--font-family-serif);
+  font-style: italic;
+}
+
+/* Lowers the font size for H3, H4, H5, H6 */
+.article-wrapper h3, .content-wrapper .h3 {
+  font-size: 1.75rem;
+}
+.article-wrapper h4, .content-wrapper .h4 {
+  font-size: 1.5rem;
+}
+.article-wrapper h5, .content-wrapper .h5 {
+  font-size: 1.25rem;
+}
+.article-wrapper h6, .content-wrapper .h6 {
+  font-size: 1rem;
+}
+
+/* Removes list styling for .task-list */
+.task-list {
+  list-style-type: none;
+}
+.task-list-item-checkbox {
+  margin-right: 0.5rem;
+}

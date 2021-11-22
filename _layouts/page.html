@@ -1,0 +1,41 @@
+---
+layout: default
+---
+<div class="row">
+  <div class="col-xl-8 p-20 collapse-group article-wrapper" id="_ham_content">
+    {{ content }}
+  </div>
+  <div class="col-xl-4 pt-xl-20 pb-20">
+    {% if page.related_topics != null %}
+      <h5 id="related-topics" class="sidebar-title">Related Topics</h5>
+      <div class="sidebar-divider"></div>
+      {% for link in page.related_topics %}
+        {% include external-link.html %}
+      {% endfor %}
+    {% endif %}
+    {% if page.further_reading != null %}
+      <h5 id="further-reading" class="sidebar-title">Further Reading</h5>
+      <div class="sidebar-divider"></div>
+      {% for link in page.further_reading %}
+        {% include external-link.html %}
+      {% endfor %}
+    {% endif %}
+    {% if page.external_links != null %}
+      <h5 id="external-links" class="sidebar-title">External Links</h5>
+      <div class="sidebar-divider"></div>
+      {% for link in page.external_links %}
+        {% include external-link.html %}
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
+
+<script src="https://unpkg.com/to-uri@1.0.4/lib/toURI.js"></script>
+<script src="/assets/entry-parser.js"></script>
+<script>
+  var siteName = '{{ site.ham.site_name }}';
+  var siteTagline = '{{ site.ham.site_tagline }}';
+  var disableTagline = '{{ page.ham.disable_tagline }}';
+  if (disableTagline.length > 0 && disableTagline == true) siteName = null;
+  parseRawEntry(document.getElementById('_ham_content'), document.getElementById('_ham_on_this_page_ul'), siteName, siteTagline);
+</script>

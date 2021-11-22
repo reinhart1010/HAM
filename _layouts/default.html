@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <meta name="viewport" content="width=device-width" />
+
+  <!-- Favicon and title -->
+  <link rel="icon" href="{{ site.ham.site_favicon | default: site.ham.site_icon }}">
+  <title>{{ page.title }} - {{ site.ham.site_title }}</title>
+
+  <!-- Halfmoon CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Icons CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css" rel="stylesheet" />
+  
+  <!-- Additional CSS -->
+  <link href="/assets/default.css" rel="stylesheet" />
+  <link href="/assets/main.css" rel="stylesheet" />
+
+</head>
+<body class="with-custom-webkit-scrollbars with-custom-css-scrollbars" data-dm-shortcut-enabled="true" data-sidebar-shortcut-enabled="true" data-set-preferred-mode-onload="true">
+  {% include search-modal.html %}
+  <div class="page-wrapper with-navbar with-sidebar">
+    <div class="sticky-alerts"></div>
+    {% include navbar.html %}
+    {% include sidebar.html %}
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        {{ content }}
+      </div>
+    </div>
+    {% include footer.html %}
+  </div>
+
+  <!-- Simple Jekyll Search JS -->
+  <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+  <script>
+    var sjs = SimpleJekyllSearch({
+      searchInput: document.getElementById('search-input'),
+      resultsContainer: document.getElementById('results-container'),
+      json: '/search.json'
+    })
+  </script>
+  <!-- Halfmoon JS -->
+  <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
+</body>
+</html>

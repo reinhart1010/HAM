@@ -1,0 +1,26 @@
+<nav class="navbar">
+  <div class="navbar-content">
+    <button class="btn btn-action" type="button" onclick="halfmoon.toggleSidebar()">
+      <i class="bi bi-list" aria-hidden="true"></i>
+      <span class="sr-only">Toggle sidebar</span>
+    </button>
+  </div>
+  <a href="/" class="navbar-brand">
+    {% if site.ham.site_icon != null %}
+      <img src="{{ site.ham.site_icon }}" alt="{{ site.ham.site_name }}">
+    {% endif %}{{ site.ham.site_name }}
+  </a>
+  {% if site.ham.site_tagline != null %}
+    <span class="navbar-text d-none d-sm-block">{{ site.ham.site_tagline }}</span> <!-- text-monospace = font-family shifted to monospace -->
+  {% endif %}
+  <div class="ml-auto">
+    <button onClick="halfmoon.toggleDarkMode()" class="btn btn-action bg-dark-lm bg-white-dm text-white-lm text-dark-dm">
+      <i class="bi bi-moon-stars" aria-hidden="true"></i>
+      <span class="sr-only">Toggle Dark Mode</span>
+    </button>
+    <a href="#search" class="btn btn-action btn-primary">
+      <i class="bi bi-search" aria-hidden="true"></i>
+      <span class="sr-only">Search</span>
+    </a>
+  </div>
+</nav>

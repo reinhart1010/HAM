@@ -1,0 +1,36 @@
+<div class="sidebar">
+  <div class="sidebar-menu">
+    <h5 id="on-this-page" class="sidebar-title">On This Page</h5>
+    <div class="sidebar-divider"></div>
+    <div id="_ham_on_this_page_ul"></div>
+    <br>
+    {% if site.ham.contributing != null %}
+      <h5 id="contribute" class="sidebar-title">Contribute to This Page</h5>
+      <div class="sidebar-divider"></div>
+      {% if site.ham.contributing.discuss.type != null %}
+        <a href="{% if site.ham.contributing.discuss.type == 'url' %}{{ site.ham.contributing.discuss.url }}{% else %}#discuss{% endif %}" class="sidebar-link sidebar-link-with-icon">
+          <span class="sidebar-icon">
+            <i class="bi bi-chat-dots" aria-hidden="true"></i>
+          </span>
+          Discuss
+        </a>
+      {% endif %}
+      {% if site.ham.contributing.issue_url != null %}
+        <a href="{{ site.ham.contributing.issue_url }}" class="sidebar-link sidebar-link-with-icon">
+          <span class="sidebar-icon">
+            <i class="bi bi-bug" aria-hidden="true"></i>
+          </span>
+          Report New Issue
+        </a>
+      {% endif %}
+      {% if site.ham.contributing.view_source_base_url != null %}
+        <a href="{{ site.ham.contributing.view_source_base_url }}{{ page.path }}" class="sidebar-link sidebar-link-with-icon">
+          <span class="sidebar-icon">
+            <i class="bi bi-code-slash" aria-hidden="true"></i>
+          </span>
+          View Source
+        </a>
+      {% endif %}
+    {% endif %}
+  </div>
+</div>
