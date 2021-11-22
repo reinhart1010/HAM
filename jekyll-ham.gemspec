@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-ham"
-  spec.version       = "0.1.3"
+  spec.version       = "0.1.4"
   spec.authors       = ["Reinhart Previano Koentjoro"]
   spec.email         = ["reinhart@reinhart1010.id"]
 
@@ -19,5 +19,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "jekyll-titles-from-headings", "~> 0.5.3"
   spec.add_runtime_dependency "kramdown-parser-gfm", "~> 1.1"
   spec.add_runtime_dependency "rouge", "~> 3.26", ">= 3.26.1"
-  spec.add_runtime_dependency "wdm", ">= 0.1.0" if Gem.win_platform?
+  spec.add_runtime_dependency "listen", "~> 3.7"
 end
