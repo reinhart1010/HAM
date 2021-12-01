@@ -1,0 +1,19 @@
+{% if site.ham.contributing != null %}
+  {% if site.ham.contributing != null %}
+    {% if site.ham.contributing.discuss.type != null && site.ham.contributing.discuss.type != 'url' %}
+      <h5 id="discuss" class="sidebar-title">Discuss this page</h5>
+      {% case site.ham.contributing.discuss.type %}
+        {% when 'giscus' %}
+          <script src="https://giscus.app/client.js" data-repo="{{ site.ham.contributing.discuss.repo }}" data-repo-id="{{ site.ham.contributing.discuss.repo_id }}" data-category="{{ site.ham.contributing.discuss.category }}" data-category-id="{{ site.ham.contributing.discuss.category_id }}" data-mapping="{{ site.ham.contributing.discuss.mapping }}" data-reactions-enabled="{{ site.ham.contributing.discuss.reactions_enabled | default: 1 }}" data-emit-metadata="{{ site.ham.contributing.discuss.emit_metadata | default: 0 }}" data-theme="{{ site.ham.contributing.discuss.theme | default: 'preferred-color-scheme' }}" data-lang="{{ site.ham.contributing.discuss.lang | default: 'en' }}" crossorigin="anonymous" async></script>
+        {% when 'telegram' %}
+          <script src="https://telegram.org/js/telegram-widget.js?15" {% if site.ham.contributing.discuss.telegram_discussion != null %} data-telegram-discussion="{{ site.ham.contributing.discuss.telegram_discussion }}" {% endif %} data-comments-limit="{{ site.ham.contributing.discuss.comments_limit | default: '5' }}" {% if site.ham.contributing.discuss.height != null %} data-height="{{ site.ham.contributing.discuss.height }}" {% endif %} data-color="{{ site.ham.contributing.discuss.color | default: '319BE6' }}" data-dark-color="{{ site.ham.contributing.discuss.color | default: '4BA3E2' }}" data-colorful="{{ site.ham.contributing.discuss.colorful | default: 0 }}" data-dark="{{ site.ham.contributing.discuss.dark | default: 0 }}" crossorigin="anonymous" async></script>
+        {% when 'utteranc.es' %}
+          <script src="https://utteranc.es/client.js" repo="{{ site.ham.contributing.discuss.repo }}" issue-term="{{ site.ham.contributing.discuss.issue_term }}"
+          {% if site.ham.contributing.discuss.label != null %}
+            label="{{ site.ham.contributing.discuss.label }}"
+          {% endif %}
+        theme="{{ site.ham.contributing.discuss.theme | default: 'preferred-color-scheme' }}" crossorigin="anonymous" async></script>
+      {% endcase %}
+    {% endif %}
+  {% endif %}
+{% endif %}
