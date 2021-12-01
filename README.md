@@ -58,7 +58,17 @@ HAM is short for:
 - [ ] Supporting Forem (DEV.to) liquid tags (YouTube embeds, Twitter posts, etc.)
 
 ## Usage
-**You don't need to clone this project to use HAM on your own wiki.** It's available as a [Gem-based theme](https://rubygems.org/gems/jekyll-ham) on the official Ruby gems repository. If you are unsure on installing gem-based themes like this one, check out the [official Jekyll documentation](https://jekyllrb.com/docs/themes/#installing-a-theme) for that.
+### For [GitHub Pages](https://pages.github.com)
+If you would like to add this theme into your GitHub Pages website, please just add the following on your `_config.yml`
+
+```
+remote_theme: reinhart1010/HAM
+```
+
+The best part of this is that you can get the latest version of HAM without manually requiring it on your Gemfile, as long as you have updated your page frequently (GitHub will fetch the current available version of the HAM "theme").
+
+### As a Gem-based theme
+HAM is also available as a [Gem-based theme](https://rubygems.org/gems/jekyll-ham) on the official Ruby gems repository. If you are unsure on installing gem-based themes like this one, check out the [official Jekyll documentation](https://jekyllrb.com/docs/themes/#installing-a-theme) for that.
 
 If you have just created a new site with `jekyll new <PATH>` chances are that you're using the default, Minima theme instead of HAM. If that's the case, replace the line which begins with
 
