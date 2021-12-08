@@ -1,1 +1,15 @@
 /* TODO: Add your CSS here (Jekyll will override it) */
+:root {
+  --font-family-serif: 'Linux Libertine', 'Linux Libertine Display O', Georgia, 'Noto Serif', 'Times New Roman', Times, serif;
+  --heading-font-weight: 700;
+}
+
+/* Use serif font for headings (a-la MediaWiki) */
+.article-wrapper h1, .article-wrapper h2, .content-wrapper .h1, .content-wrapper .h2 {
+  font-family: var(--font-family-serif);
+  font-weight: 400;
+}
+.article-sitesub {
+  font-family: var(--font-family-serif);
+  font-style: italic;
+}
