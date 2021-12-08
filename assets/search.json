@@ -4,7 +4,7 @@ layout: none
 [
   {% for page in site.pages %}
     {
-      {% if page.url != '/search.json' and page.url != '/sitemap.xml' and page.url != '/robots.txt' %}
+      {% if page.url != '/assets/search.json' and page.url != '/sitemap.xml' and page.url != '/robots.txt' %}
       "title"    : "{% if page.url == '/' %}Main Page{% else %}{{ page.title | escape }}{% endif %}",
       "category" : "{{ page.category }}",
       "tags"     : "{{ page.tags | join: ', ' }}",
