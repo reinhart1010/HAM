@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-ham"
-  spec.version       = "0.1.5"
+  spec.version       = "0.1.6"
   spec.authors       = ["Reinhart Previano Koentjoro"]
   spec.email         = ["reinhart@reinhart1010.id"]
 
@@ -13,6 +13,7 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_layouts|_includes|_sass|LICENSE|README|_config\.yml)!i) }
 
   spec.add_runtime_dependency "jekyll", "~> 4.2"
+  spec.add_runtime_dependency 'jekyll-optional-front-matter', '~> 0.3.2'
   spec.add_runtime_dependency "jekyll-readme-index", "~> 0.3.0"
   spec.add_runtime_dependency "jekyll-seo-tag", "~> 2.7", ">= 2.7.1"
   spec.add_runtime_dependency "jekyll-sitemap", "~> 1.4"

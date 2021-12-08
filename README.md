@@ -85,7 +85,7 @@ gem "jekyll-ham", "~> 0.1.2"
 Also don't forget to change the `theme` configuration on your `_config.yml` to `jekyll-ham` instead of `minima`.
 
 ### Site does not load properly after first `jekyll build`?
-Make sure that all of your Markdown and HTML files include the following frontmatter:
+In previous versions of HAM (0.1.5 and earlier), all of your Markdown and HTML files must include the following frontmatter:
 
 ```yaml
 ---
@@ -93,7 +93,7 @@ layout: page
 ---
 ```
 
-This ensures that the default page template (as defined in our `_layouts/page.html`) is used to load the entire content
+However, as of 0.1.6 `jekyll-optional-front-matter` has been included and configured by default to remove this requirement, which allows easier content migration for future wikis.
 
 ### Changing the `_config.yml`
 HAM also introduces additional configuration which you can set on your `_config.yml`:
