@@ -31,6 +31,21 @@
           View Source
         </a>
       {% endif %}
+    <br>
+    {% endif %}
+    {% if site.data.index %}
+      {% for section in site.data.index %}
+        <h5 class="sidebar-title">
+          {{ section.name }}
+        </h5>
+        <div class="sidebar-divider"></div>
+        {% for child in section.children %}
+          <a href="{{ child.url }}" class="sidebar-link">
+            <span class="name">{{ child.name }}</span>
+          </a>
+        {% endfor %}
+        <br>
+      {% endfor %}
     {% endif %}
   </div>
 </aside>
