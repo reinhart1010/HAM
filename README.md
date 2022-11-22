@@ -47,7 +47,7 @@ HAM is short for:
 - [x] A better alternative than GitHub pages
 - [x] Highly customizable through [Halfmoon] and [Jekyll]
 - [x] Uses GitHub-Flavored Markdown (GFM)
-- [x] Optimized for GitHub Pages and Gitlab Pages
+- [x] Optimized for GitHub Pages and GitLab Pages
 
 ### What HAM isn't
 - [ ] Optimized for large wiki content (this is where advanced alternatives such as [MediaWiki] excels at)
@@ -65,6 +65,8 @@ If you would like to add this theme into your GitHub Pages website, please just 
 remote_theme: reinhart1010/HAM
 ```
 
+Note that this instruction will only work if you still opt in to GitHub Pages' "classic" experience - the same old workflow without having to write your own GitHub Actions. Users who opt in to use GitHub Actions instead should install this as a regular Gem-based theme.
+
 The best part of this is that you can get the latest version of HAM without manually requiring it on your Gemfile, as long as you have updated your page frequently (GitHub will fetch the current available version of the HAM "theme").
 
 ### As a Gem-based theme
@@ -72,14 +74,14 @@ HAM is also available as a [Gem-based theme](https://rubygems.org/gems/jekyll-ha
 
 If you have just created a new site with `jekyll new <PATH>` chances are that you're using the default, Minima theme instead of HAM. If that's the case, replace the line which begins with
 
-```
+```gemspec
 gem "minima"
 ```
 
 on your `Gemfile` with
 
-```
-gem "jekyll-ham", "~> 0.2.1"
+```gemspec
+gem "jekyll-ham", "~> 0.2.2"
 ```
 
 Also don't forget to change the `theme` configuration on your `_config.yml` to `jekyll-ham` instead of `minima`.
@@ -118,11 +120,11 @@ HAM heavily uses [Halfmoon] CSS framework on the generated page due to its themi
 [MediaWiki]: https://mediawiki.org
 
 ## Credits & Open Source Licenses
-Copyright (c) 2021 Reinhart Previano Koentjoro.
+Copyright (c) 2022 Reinhart Previano Koentjoro.
 
 This project is distributed under MIT License, and also uses the following open-source components:
 
-+ Bootstrap Icons (<https://github.com/twbs/icons>) - Copyright (c) 2019-2021 The Bootstrap Authors, MIT License
++ Bootstrap Icons (<https://github.com/twbs/icons>) - Copyright (c) 2019-2022 The Bootstrap Authors, MIT License
 + Halfmoon (<https://github.com/halfmoonui/halfmoon>) - Copyright (c) 2020 Halfmoon UI, MIT License
 + OneDarkJekyll (<https://github.com/mgyongyosi/OneDarkJekyll>) - Copyright (c) 2016 Mihály Gyöngyösi, MIT License
 + Simple-Jekyll-Search (<https://github.com/christian-fei/Simple-Jekyll-Search>) - Copyright (c) 2015 Christian Fei, MIT License
