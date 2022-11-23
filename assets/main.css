@@ -9,14 +9,14 @@ body {
 }
 
 /* Custom icon for panel open and close */ 
-.page-wrapper .ham-menu-button-icon-close {
+.page-wrapper .ham-menu-button-icon-open {
   display: none;
 }
 .page-wrapper[data-sidebar-hidden="hidden"] .ham-menu-button-icon-open {
-  display: none;
+  display: block;
 }
 .page-wrapper[data-sidebar-hidden="hidden"] .ham-menu-button-icon-close {
-  display: block;
+  display: none;
 }
 
 
