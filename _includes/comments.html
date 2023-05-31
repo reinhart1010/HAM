@@ -7,30 +7,32 @@
           {% when 'custom' %}
             {% include custom-comments.html %}
           {% when 'facebook' %}
+            {% if page.contributing.discuss.facebook_app_id != null %}
+              <div id="fb-root"></div>
+              <script async defer crossorigin="anonymous" src="https://connect.facebook.net/{{ page.contributing.discuss.lang }}/sdk.js#xfbml=1&version=v17.0&appId={{ page.contributing.discuss.facebook_app_id }}&autoLogAppEvents=1" nonce="mqsBinib"></script>
+              <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="" data-numposts="5"></div>
+            {% endif %}
+          {% when 'giscus' %}
+            <script src="https://giscus.app/client.js" data-repo="{{ page.contributing.discuss.repo }}" data-repo-id="{{ page.contributing.discuss.repo_id }}" data-category="{{ page.contributing.discuss.category }}" data-category-id="{{ page.contributing.discuss.category_id }}" data-mapping="{{ page.contributing.discuss.mapping }}" data-reactions-enabled="{{ page.contributing.discuss.reactions_enabled | default: 1 }}" data-emit-metadata="{{ page.contributing.discuss.emit_metadata | default: 0 }}" data-theme="{{ page.contributing.discuss.theme | default: 'preferred_color_scheme' }}" data-lang="{{ page.contributing.discuss.lang | default: 'en' }}" crossorigin="anonymous" async></script>
+          {% when 'telegram' %}
+            <script src="https://telegram.org/js/telegram-widget.js?15" {% if page.contributing.discuss.telegram_discussion != null %} data-telegram-discussion="{{ page.contributing.discuss.telegram_discussion }}" {% endif %} data-comments-limit="{{ page.contributing.discuss.comments_limit | default: '5' }}" {% if page.contributing.discuss.height != null %} data-height="{{ page.contributing.discuss.height }}" {% endif %} data-color="{{ page.contributing.discuss.color | default: '319BE6' }}" data-dark-color="{{ page.contributing.discuss.color | default: '4BA3E2' }}" data-colorful="{{ page.contributing.discuss.colorful | default: 0 }}" data-dark="{{ page.contributing.discuss.dark | default: 0 }}" crossorigin="anonymous" async></script>
+          {% when 'utterances' %}
+            <script src="https://utteranc.es/client.js" repo="{{ page.contributing.discuss.repo }}" issue-term="{{ page.contributing.discuss.issue_term }}"
             {% if page.contributing.discuss.label != null %}
-            <div id="fb-root"></div>
-            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/{{ page.contributing.discuss.lang }}/sdk.js#xfbml=1&version=v17.0&appId={{ page.contributing.discuss.app_id }}&autoLogAppEvents=1" nonce="mqsBinib"></script>
-            <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="" data-numposts="5"></div>
-        {% when 'giscus' %}
-          <script src="https://giscus.app/client.js" data-repo="{{ page.contributing.discuss.repo }}" data-repo-id="{{ page.contributing.discuss.repo_id }}" data-category="{{ page.contributing.discuss.category }}" data-category-id="{{ page.contributing.discuss.category_id }}" data-mapping="{{ page.contributing.discuss.mapping }}" data-reactions-enabled="{{ page.contributing.discuss.reactions_enabled | default: 1 }}" data-emit-metadata="{{ page.contributing.discuss.emit_metadata | default: 0 }}" data-theme="{{ page.contributing.discuss.theme | default: 'preferred_color_scheme' }}" data-lang="{{ page.contributing.discuss.lang | default: 'en' }}" crossorigin="anonymous" async></script>
-        {% when 'telegram' %}
-          <script src="https://telegram.org/js/telegram-widget.js?15" {% if page.contributing.discuss.telegram_discussion != null %} data-telegram-discussion="{{ page.contributing.discuss.telegram_discussion }}" {% endif %} data-comments-limit="{{ page.contributing.discuss.comments_limit | default: '5' }}" {% if page.contributing.discuss.height != null %} data-height="{{ page.contributing.discuss.height }}" {% endif %} data-color="{{ page.contributing.discuss.color | default: '319BE6' }}" data-dark-color="{{ page.contributing.discuss.color | default: '4BA3E2' }}" data-colorful="{{ page.contributing.discuss.colorful | default: 0 }}" data-dark="{{ page.contributing.discuss.dark | default: 0 }}" crossorigin="anonymous" async></script>
-        {% when 'utterances' %}
-          <script src="https://utteranc.es/client.js" repo="{{ page.contributing.discuss.repo }}" issue-term="{{ page.contributing.discuss.issue_term }}"
-          {% if page.contributing.discuss.label != null %}
-            label="{{ page.contributing.discuss.label }}"
-          {% endif %}
-            theme="{{ page.contributing.discuss.theme | default: 'preferred-color-scheme' }}" crossorigin="anonymous" async></script>
+              label="{{ page.contributing.discuss.label }}"
+            {% endif %}
+              theme="{{ page.contributing.discuss.theme | default: 'preferred-color-scheme' }}" crossorigin="anonymous" async></script>
         {% endcase %}
       {% else %}
         {% case site.ham.contributing.discuss.type %}
           {% when 'custom' %}
             {% include custom-comments.html %}
           {% when 'facebook' %}
-            {% if site.ham.contributing.discuss.label != null %}
+            {% if site.ham.contributing.discuss.facebook_app_id != null %}
               <div id="fb-root"></div>
-              <script async defer crossorigin="anonymous" src="https://connect.facebook.net/{{ site.ham.contributing.discuss.lang }}/sdk.js#xfbml=1&version=v17.0&appId={{ site.ham.contributing.discuss.app_id }}&autoLogAppEvents=1" nonce="mqsBinib"></script>
+              <script async defer crossorigin="anonymous" src="https://connect.facebook.net/{{ site.ham.contributing.discuss.lang }}/sdk.js#xfbml=1&version=v17.0&appId={{ site.ham.contributing.discuss.facebook_app_id }}&autoLogAppEvents=1" nonce="mqsBinib"></script>
               <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="" data-numposts="5"></div>
+            {% endif %}
           {% when 'giscus' %}
             <script src="https://giscus.app/client.js" data-repo="{{ site.ham.contributing.discuss.repo }}" data-repo-id="{{ site.ham.contributing.discuss.repo_id }}" data-category="{{ site.ham.contributing.discuss.category }}" data-category-id="{{ site.ham.contributing.discuss.category_id }}" data-mapping="{{ site.ham.contributing.discuss.mapping }}" data-reactions-enabled="{{ site.ham.contributing.discuss.reactions_enabled | default: 1 }}" data-emit-metadata="{{ site.ham.contributing.discuss.emit_metadata | default: 0 }}" data-theme="{{ site.ham.contributing.discuss.theme | default: 'preferred_color_scheme' }}" data-lang="{{ site.ham.contributing.discuss.lang | default: 'en' }}" crossorigin="anonymous" async></script>
           {% when 'telegram' %}

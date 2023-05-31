@@ -150,7 +150,7 @@ ham:
   contributing:
     discuss:
       type: facebook
-      app_id: 123456789
+      facebook_app_id: 123456789
       lang: en_US
 ```
 
@@ -209,11 +209,11 @@ HAM heavily uses [Halfmoon] CSS framework on the generated page due to its themi
 [MediaWiki]: https://mediawiki.org
 
 ## Credits & Open Source Licenses
-Copyright (c) 2022 Reinhart Previano Koentjoro.
+Copyright (c) 2021-2023 Reinhart Previano Koentjoro.
 
 This project is distributed under MIT License, and also uses the following open-source components:
 
-+ Bootstrap Icons (<https://github.com/twbs/icons>) - Copyright (c) 2019-2022 The Bootstrap Authors, MIT License
++ Bootstrap Icons (<https://github.com/twbs/icons>) - Copyright (c) 2019-2023 The Bootstrap Authors, MIT License
 + Halfmoon (<https://github.com/halfmoonui/halfmoon>) - Copyright (c) 2020 Halfmoon UI, MIT License
 + OneDarkJekyll (<https://github.com/mgyongyosi/OneDarkJekyll>) - Copyright (c) 2016 Mihály Gyöngyösi, MIT License
 + Simple-Jekyll-Search (<https://github.com/christian-fei/Simple-Jekyll-Search>) - Copyright (c) 2015 Christian Fei, MIT License
