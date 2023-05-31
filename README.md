@@ -117,11 +117,13 @@ ham:
       content: BBBBBB
   contributing: # Additional metadata for "Contribute to This Page" section on sidebar
     discuss: # For "Discuss" (or "Talk page" on MediaWiki)
-      type: url | custom | facebook | giscus | telegram | utterances
+      type: url | custom | commentbox.io | disqus | facebook | giscus | telegram | utterances
       url: https://github.com/reinhart1010/HAM/discussions/
     view_source_base_url: https://github.com/reinhart1010/HAM/blob/main/ # The base URL to publicly view the original (Markdown) source code
     issue_url: https://github.com/reinhart1010/HAM/issues/ # The URL to report an issue related to site or content
 ```
+
+Note: You can also override the whole favicon settings (either to entirely remove, or adding mobile or browser-specific icon formats) by overriding `_includes/favicon.html`.
 
 ### Comments
 HAM provides built-in support for Facebook, Giscus, Telegram, and Utteranc.es widgets plugins. However, you can also add your own widgets or links by following these instructions.
@@ -145,6 +147,28 @@ ham:
   contributing:
     discuss:
       type: custom
+```
+
+#### CommentBox.io
+To set up CommentBox.io for HAM, [follow their installation instructions](https://commentbox.io), and modify the `_config.yml` according to the values obtained from the generated HTML snippet.
+
+```yaml
+ham:
+  contributing:
+    discuss:
+      type: commentbox.io
+      project_id: CommentBox.io Project ID
+```
+
+#### Disqus
+To set up Disqus for HAM, [follow their installation instructions](https://commentbox.io), and modify the `_config.yml` according to the values obtained from the generated HTML snippet.
+
+```yaml
+ham:
+  contributing:
+    discuss:
+      type: disqus
+      forum_shortname: example-forum # Disqus forum shortname, such as `example-forum` from `https://example-forum.disqus.com`.
 ```
 
 #### Facebook

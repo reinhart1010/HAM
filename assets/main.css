@@ -1,7 +1,9 @@
 /* TODO: Add your CSS here (Jekyll will override it) */
 :root {
-  --font-family-sans: "Segoe UI Variable Text", -apple-system, BlinkMacSystemFont, Inter, "Segoe UI", Cantarell, "Open Sans", "Noto Sans", Piboto, Ubuntu, "Roboto Flex", Roboto, Helvetica, FreeSans, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-family-serif: 'Linux Libertine', 'Linux Libertine Display O', Georgia, 'Noto Serif', 'Times New Roman', Times, serif;
+  --font-family-sans: "Segoe UI Variable Text", -apple-system, BlinkMacSystemFont, Inter, "Segoe UI", Cantarell, "Open Sans", "Noto Sans", Piboto, Ubuntu, "Roboto Flex", Roboto, Helvetica, FreeSans, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Noto Emoji";
+  --font-family-sans-display: "Segoe UI Variable Display", -apple-system, BlinkMacSystemFont, Inter, "Segoe UI", Cantarell, "Open Sans", "Noto Sans", Piboto, Ubuntu, "Roboto Flex", Roboto, Helvetica, FreeSans, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Noto Emoji";
+  --font-family-serif: ui-serif, "Linux Libertine", 'Linux Libertine O', "Roboto Serif", Georgia, "Noto Serif", "Times New Roman", Times, serif;
+  --font-family-serif-display: ui-serif, "Linux Libertine Display", 'Linux Libertine Display O', "Roboto Serif", Georgia, "Noto Serif", "Times New Roman", Times, serif;
   --heading-font-weight: 700;
 }
 body {
@@ -22,11 +24,11 @@ body {
 
 /* Use serif font for headings (a-la MediaWiki) */
 .article-wrapper h1, .article-wrapper h2, .content-wrapper .h1, .content-wrapper .h2 {
-  font-family: var(--font-family-serif);
+  font-family: var(--font-family-serif-display);
   font-weight: 400;
 }
 .article-sitesub {
-  font-family: var(--font-family-serif);
+  font-family: var(--font-family-serif-display);
   font-style: italic;
 }
 
