@@ -41,6 +41,11 @@ HAM is short for:
 + [Halfmoon] and Markdown
 + && i++ (can we get more pull requests to add more stuff into this list?)
 
+## Why does HAM look boring?
+HAM ships the default [Halfmoon] theme by default, which might be considered boring by some. But that's the beauty of it, because **HAM supports Halfmoon's CSS variables to play with!**
+
+We believe that everyone should be able to theme HAM websites according to their brand and preferences, [including us over @reinhart1010 and @1010bots](https://github.com/reinhart1010/dotfiles/blob/main/halfmoon.css).
+
 ## Features
 ### What HAM is
 - [x] A static-site wiki generator
@@ -133,7 +138,7 @@ ham:
 ```
 
 #### Custom Comments Widget (HTML code)
-You can use an custom-made comments widget (e.g. JavaScript-based or `<iframe>` element) into HAM by placing the code under `_includes/custom-comments.html`. You can also use Jekyll-specific variables and attributes including `{{ site.url }}` to render custom widget code.
+You can use an custom-made comments widget (e.g. JavaScript-based or `<iframe>` element) into HAM by placing the code under `_includes/custom-comments.html`. You can also use Jekyll-specific variables and attributes including `site.title`, `site.ham.contributing.issue_url` and `page.tags` to render custom widget code.
 
 ```yaml
 ham:
@@ -176,7 +181,7 @@ ham:
 #### Telegram (@DiscussBot)
 HAM supports for Telegram's [@DiscussBot](https://t.me/DiscussBot) web comments widget. **This widget may not sync with comments on Telegram channels set up via [discussion groups](https://telegram.org/blog/privacy-discussions-web-bots).**
 
-To set up the widget, follow the instructions provided on https://comments.app under your Telegram account, and modify the `_config.yml` according to the values obtained from the generated HTML snippet.
+To set up the widget, follow the instructions provided on <https://comments.app> under your Telegram account, and modify the `_config.yml` according to the values obtained from the generated HTML snippet.
 
 ```yaml
 ham:
@@ -184,6 +189,11 @@ ham:
     discuss:
       type: telegram
       telegram_discussion: data-telegram-discussion
+      comments_limit: data-comments-limit # Optional, default: 5
+      height: data-height # Optional
+      color: data-color # Optional
+      dark_color: data-dark-color # Optional 
+      dark: data-dark # Optional, default: 0
 ```
 
 #### Utterances
