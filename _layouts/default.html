@@ -9,8 +9,10 @@
     <meta name="{{ meta.name }}" content="{{ meta.content }}" />
   {% endfor %}
 
-  <!-- Favicon and title -->
-  <link rel="icon" href="{{ site.ham.site_favicon | default: site.ham.site_icon }}">
+  <!-- Favicon -->
+  {% include favicon.html %}
+
+  <!-- Title -->
   <title>{{ page.title }} - {{ site.title }}</title>
 
   <!-- Halfmoon CSS -->
