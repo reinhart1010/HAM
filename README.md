@@ -97,19 +97,108 @@ layout: page
 
 However, as of 0.1.6 `jekyll-optional-front-matter` has been included and configured by default to remove this requirement, which allows easier content migration for future wikis.
 
-### Changing the `_config.yml`
+## Configuration
 HAM also introduces additional configuration which you can set on your `_config.yml`:
 
+### Site Identity
 ```yaml
 ham:
   site_icon: https://raw.githubusercontent.com/googlefonts/noto-emoji/main/svg/emoji_u1f969.svg # Your site icon, to be displayed on navbar
   site_favicon: null # Your site favicon, in case you have a spare favicon.ico for it
+  site_meta:
+    - name: google-site-verification
+      content: AAAAAA
+    - name: msvalidate.01
+      content: BBBBBB
   contributing: # Additional metadata for "Contribute to This Page" section on sidebar
     discuss: # For "Discuss" (or "Talk page" on MediaWiki)
-      type: url # Currently supports "url". Support for other discussion widgets such as DiscussBot (Telegram), Disqus, and Utteranc.es are coming soon.
+      type: url | custom | facebook | giscus | telegram | utterances
       url: https://github.com/reinhart1010/HAM/discussions/
     view_source_base_url: https://github.com/reinhart1010/HAM/blob/main/ # The base URL to publicly view the original (Markdown) source code
     issue_url: https://github.com/reinhart1010/HAM/issues/ # The URL to report an issue related to site or content
+```
+
+### Comments
+HAM provides built-in support for Facebook, Giscus, Telegram, and Utteranc.es widgets plugins. However, you can also add your own widgets or links by following these instructions.
+
+#### URL (Default)
+If you have a dedicated forum or discussion webpage, such as GitHub Discussions, you can link them directly to all HAM pages by setting Jekyll's `_config.yml` as below.
+
+```yaml
+ham:
+  contributing:
+    discuss:
+      type: url
+      url: https://github.com/reinhart1010/HAM/discussions/
+```
+
+#### Custom Comments Widget (HTML code)
+You can use an custom-made comments widget (e.g. JavaScript-based or `<iframe>` element) into HAM by placing the code under `_includes/custom-comments.html`. You can also use Jekyll-specific variables and attributes including `{{ site.url }}` to render custom widget code.
+
+```yaml
+ham:
+  contributing:
+    discuss:
+      type: custom
+```
+
+#### Facebook
+HAM includes an external JavaScript from Facebook in order to render the Facebook Comments Widget. You are also required to register your website as an app on Facebook, [switch from Development Mode to Live/Public Mode](https://developers.facebook.com/docs/development/build-and-test/app-modes), and insert your App ID and preferred language into the configuration below.
+
+```yaml
+ham:
+  contributing:
+    discuss:
+      type: facebook
+      app_id: 123456789
+      lang: en_US
+```
+
+#### Giscus
+[Giscus](https://giscus.app) is yet another comment widget plugin powered by GitHub Discussions. To set up Giscus for HAM, [follow their installation instructions](https://giscus.app), and modify the `_config.yml` according to the values obtained from the generated HTML snippet.
+
+```yaml
+ham:
+  contributing:
+    discuss:
+      type: utterances
+      repo: data-repo
+      repo_id: data-repo-id
+      category: data-category
+      category_id: data-category-id
+      mapping: data-mapping
+      reactions_enabled: data-reactions-enabled
+      emit_metadata: data-emit-metadata
+      theme: data-theme # "preferred_color_scheme" is preferred to allow HAM's dark mode integration to work smoothly
+      lang: data-lang
+```
+
+#### Telegram (@DiscussBot)
+HAM supports for Telegram's [@DiscussBot](https://t.me/DiscussBot) web comments widget. **This widget may not sync with comments on Telegram channels set up via [discussion groups](https://telegram.org/blog/privacy-discussions-web-bots).**
+
+To set up the widget, follow the instructions provided on https://comments.app under your Telegram account, and modify the `_config.yml` according to the values obtained from the generated HTML snippet.
+
+```yaml
+ham:
+  contributing:
+    discuss:
+      type: telegram
+      telegram_discussion: data-telegram-discussion
+```
+
+#### Utterances
+> **DEPRECATED:** The value `utteranc.es` has been deprecated, removed, and replaced with `utterances` (without the dot).
+
+[Utterances](https://utteranc.es) is yet another comment widget plugin powered by GitHub Issues. To set up Utterances for HAM, [follow their installation instructions](https://utteranc.es), and modify the `_config.yml` according to the values obtained from the generated HTML snippet.
+
+```yaml
+ham:
+  contributing:
+    discuss:
+      type: utterances
+      repo: data-repo
+      issue_term: issue_term # optional
+      theme: theme # "preferred-color-scheme" is preferred to allow HAM's dark mode integration to work smoothly
 ```
 
 ## Browser Compatibility
