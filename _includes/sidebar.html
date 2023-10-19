@@ -4,12 +4,12 @@
     <div class="sidebar-divider"></div>
     <div id="_ham_on_this_page_ul"></div>
     <br>
-    {% if page.contributing != null || site.ham.contributing != null %}
+    {% if page.contributing != null or site.ham.contributing != null %}
       <h5 id="contribute" class="sidebar-title">Contribute to This Page</h5>
       <div class="sidebar-divider"></div>
-      {% if page.contributing.discuss.type != null || site.ham.contributing.discuss.type != null %}
+      {% if page.contributing.discuss.type != null or site.ham.contributing.discuss.type != null %}
         <a 
-          {% if page.contributing.discuss.type == 'url' || site.ham.contributing.discuss.type == 'url' %}
+          {% if page.contributing.discuss.type == 'url' or site.ham.contributing.discuss.type == 'url' %}
             href="{{ page.contributing.discuss.url | default: site.ham.contributing.discuss.url }}"
           {% else %}
             #discuss
@@ -20,7 +20,7 @@
           Discuss
         </a>
       {% endif %}
-      {% if page.contributing.issue_url != null || site.ham.contributing.issue_url != null %}
+      {% if page.contributing.issue_url != null or site.ham.contributing.issue_url != null %}
         <a href="{{ page.contributing.issue_url | default: site.ham.contributing.issue_url }}" class="sidebar-link sidebar-link-with-icon">
           <span class="sidebar-icon">
             <i class="bi bi-bug" aria-hidden="true"></i>
@@ -28,7 +28,7 @@
           Report New Issue
         </a>
       {% endif %}
-      {% if page.contributing.view_source_url != null || site.ham.contributing.view_source_base_url != null %}
+      {% if page.contributing.view_source_url != null or site.ham.contributing.view_source_base_url != null %}
         <a
           {% if page.contributing.issue_url != null %}
             href="{{ page.contributing.view_source_url }}"
