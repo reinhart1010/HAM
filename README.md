@@ -34,8 +34,6 @@ external_links:
 > 
 > **BREAKING CHANGE:** HAM is currently being upgraded to Halfmoon 2.0, which introduce visual breaking changes. See <https://github.com/reinhart1010/HAM/issues/6>.
 
-{% youtube 0FKaIiRhUME %}
-
 HAM is a Jekyll-based boilerplate template for generating better, static wiki-style websites. HAM can be instantly used to build static wiki pages. But the best of all, the default theme of HAM can be easily customized to create more personalized wiki pages, unlike those from MediaWiki, for example.
 
 This project is built to replace the current, MediaWiki installation at <hackapedia.reinhart1010.id> after I found out difficult to create custom styles for it, while other, Git-based alternatives such as GitHub Wiki sucks (no, really) and may not support self-hosting on shared hosting providers.
@@ -68,6 +66,9 @@ We believe that everyone should be able to theme HAM websites according to their
 
 ### What HAM would be
 - [ ] Supporting Forem (DEV.to) liquid tags (YouTube embeds, Twitter posts, etc.)
+  - Actually, we are starting to support some of them with privacy-preserving options, like this YouTube embed below (we promised this would not be another rickroll).
+
+{% youtube 0FKaIiRhUME %}
 
 ## Usage
 ### For [GitHub Pages](https://pages.github.com)
