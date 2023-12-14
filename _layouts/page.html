@@ -1,33 +1,84 @@
 ---
 layout: default
 ---
-<article class="row">
-  <div class="col-xl-8 p-20 collapse-group article-wrapper" id="_ham_content">
+<article class="row px-1 py-3">
+  <div class="col-xl-8 collapse-group article-wrapper" id="_ham_content">
     {{ content }}
   </div>
-  <div class="col-xl-4 pt-xl-20 pb-20">
+  <div class="col-xl-4">
     {% if page.related_topics != null %}
-      <h5 id="related-topics" class="sidebar-title">Related Topics</h5>
-      <div class="sidebar-divider"></div>
-      {% for link in page.related_topics %}
-        {% include external-link.html %}
-      {% endfor %}
+      <div class="mb-3">
+        <h5 id="related-topics" class="sidebar-title">Related Topics</h5>
+        <div class="list-group">
+          {% for link in page.related_topics %}
+            {% include ham/external-link.html %}
+          {% endfor %}
+        </div>
+      </div>
     {% endif %}
     {% if page.further_reading != null %}
-      <h5 id="further-reading" class="sidebar-title">Further Reading</h5>
-      <div class="sidebar-divider"></div>
-      {% for link in page.further_reading %}
-        {% include external-link.html %}
-      {% endfor %}
+      <div class="mb-3">
+        <h5 id="further-reading" class="sidebar-title">Further Reading</h5>
+        <div class="list-group">
+          {% for link in page.further_reading %}
+            {% include ham/external-link.html %}
+          {% endfor %}
+        </div>
+      </div>
     {% endif %}
     {% if page.external_links != null %}
-      <h5 id="external-links" class="sidebar-title">External Links</h5>
-      <div class="sidebar-divider"></div>
-      {% for link in page.external_links %}
-        {% include external-link.html %}
-      {% endfor %}
+      <div class="mb-3">
+        <h5 id="external-links" class="sidebar-title">External Links</h5>
+        <div class="list-group">
+          {% for link in page.external_links %}
+            {% include ham/external-link.html %}
+          {% endfor %}
+        </div>
+      </div>
     {% endif %}
-    {% include comments.html %}
+    {% if page.contributing != null or site.ham.contributing != null %}
+      <div class="mb-3">
+        <h5 id="contribute" class="sidebar-title">Contribute to This Page</h5>
+        <div class="list-group">
+          {% if page.contributing.discuss.type != null or site.ham.contributing.discuss.type != null %}
+            <a 
+              {% if page.contributing.discuss.type == 'url' or site.ham.contributing.discuss.type == 'url' %}
+                href="{{ page.contributing.discuss.url | default: site.ham.contributing.discuss.url }}"
+              {% else %}
+                #discuss
+              {% endif %} class="list-group-item">
+              <span class="sidebar-icon">
+                <i class="bi bi-chat-dots" aria-hidden="true"></i>
+              </span>
+              Discuss
+            </a>
+          {% endif %}
+          {% if page.contributing.issue_url != null or site.ham.contributing.issue_url != null %}
+            <a href="{{ page.contributing.issue_url | default: site.ham.contributing.issue_url }}" class="list-group-item">
+              <span class="sidebar-icon">
+                <i class="bi bi-bug" aria-hidden="true"></i>
+              </span>
+              Report New Issue
+            </a>
+          {% endif %}
+          {% if page.contributing.view_source_url != null or site.ham.contributing.view_source_base_url != null %}
+            <a
+              {% if page.contributing.issue_url != null %}
+                href="{{ page.contributing.view_source_url }}"
+              {% else %}
+                href="{{ site.ham.contributing.view_source_base_url }}{{ page.path }}"
+              {% endif %}
+              class="list-group-item">
+              <span class="sidebar-icon">
+                <i class="bi bi-code-slash" aria-hidden="true"></i>
+              </span>
+              View Source
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+    {% include ham/comments.html %}
   </div>
 </div>
 

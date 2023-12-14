@@ -6,6 +6,8 @@ defaults:
 ham:
   site_icon: https://raw.githubusercontent.com/googlefonts/noto-emoji/main/svg/emoji_u1f969.svg
 highlighter: rouge
+include:
+  - _embed
 kramdown:
   input: GFM
   syntax_highlighter: rouge

@@ -1,0 +1,39 @@
+<nav class="sidebar offcanvas-start offcanvas-md" tabindex="-1" id="_ham_sidebar">
+  <div class="offcanvas-header d-md-none border-bottom border-secondary border-opacity-25">
+    <a href="/" class="sidebar-brand">
+      {% if site.ham.site_icon != null %}
+        <img src="{{ site.ham.site_icon }}" alt="{{ site.title }}">
+      {% endif %}{{ site.title }}
+    </a>
+    <button type="button" class="btn-close d-md-none" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#_ham_sidebar">
+      <i class="bi bi-x-lg" aria-description="Close sidebar"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="mb-3">
+      <h5 id="on-this-page" class="sidebar-title">Search</h5>
+      <input type="text" class="form-control" id="_ham_search_input" placeholder="Search...">
+      <div id="_ham_search_results_container" class="list-group"></div>
+    </div>
+    {% if site.data.index %}
+      <div class="mb-3">
+        {% for section in site.data.index %}
+          <h5 class="sidebar-title" id="{{ section.id }}">
+            {{ section.name }}
+          </h5>
+          <ul class="list-group">
+            {% for child in section.children %}
+              <a href="{{ child.url }}" class="list-group-item">
+                <span class="name">{{ child.name }}</span>
+              </a>
+            {% endfor %}
+          </ul>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <div class="mb-3">
+      <h5 id="on-this-page" class="sidebar-title">On This Page</h5>
+      <div id="_ham_on_this_page_ul"></div>
+    </div>
+  </div>
+</nav>

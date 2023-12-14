@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg sticky-top" style="background-color: var(--bs-content-bg); border-bottom: var(--bs-border-width) solid var(--bs-content-border-color);">
+  <div class="container-fluid">
+    <div class="btn-group d-md-none" role="group">
+      <button type="button" data-bs-toggle="offcanvas" data-bs-target="#_ham_sidebar" aria-controls="_ham_sidebar" class="btn btn-secondary">
+        <i class="bi bi-search" aria-hidden="true"></i>
+      </button>
+      <button type="button" data-bs-toggle="offcanvas" data-bs-target="#_ham_sidebar" aria-controls="_ham_sidebar" class="btn btn-secondary">
+        <i class="bi bi-list-nested me-1" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <a class="navbar-brand" href="#">
+      {% if site.ham.site_icon != null %}
+        <img src="{{ site.ham.site_icon }}" alt="{{ site.title }}" width="24" height="24" class="d-inline-block align-text-top">
+      {% endif %}{{ site.title }}
+    </a>
+    <div class="btn-group d-md-none" role="group">
+      <button type="button" data-bs-toggle="collapse" data-bs-target="#_ham_settings" aria-controls="_ham_settings" class="btn btn-secondary">
+        <i class="bi bi-gear me-1" aria-hidden="true"></i>
+        <p>Settings</p>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="_ham_settings">
+      {% if site.tagline != null %}
+        <span>{{ site.tagline }}</span>
+      {% endif %}
+      {% include navbar.html %}
+    </div>
+  </div>
+</nav>

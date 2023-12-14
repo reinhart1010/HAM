@@ -21,17 +21,6 @@ body {
   display: none;
 }
 
-
-/* Use serif font for headings (a-la MediaWiki) */
-.article-wrapper h1, .article-wrapper h2, .content-wrapper .h1, .content-wrapper .h2 {
-  font-family: var(--font-family-serif-display);
-  font-weight: 400;
-}
-.article-sitesub {
-  font-family: var(--font-family-serif-display);
-  font-style: italic;
-}
-
 /* Make code previews rounded */
 .highlight, pre.highlight {
   border-radius: var(--base-border-radius);

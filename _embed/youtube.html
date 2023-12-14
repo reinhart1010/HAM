@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Halfmoon CSS -->
+  <link href="/assets/halfmoon-variables.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Icons CSS -->
+  <link href="/assets/bootstrap-icons.min.css" rel="stylesheet" />
+  
+  <!-- Core CSS required for HAM to work properly -->
+  <link href="/assets/default.css" rel="stylesheet" />
+
+  <!-- Additional CSS -->
+  <link href="/assets/main.css" rel="stylesheet" />
+  <link href="/assets/syntax-highlighter.css" rel="stylesheet" />
+
+  <script src="/assets/cookies.js"></script>
+</head>
+<body>
+  <div id="settings" class="alert alert-warning bg-body min-vh-100 vw-100 m-0">
+    <p><strong class="text-warning-emphasis">This page contains an embedded video from YouTube.</strong> You can watch the video directly here, on YouTube, or on alternative viewers including <a target="_blank" href="https://invidious.io">Invidious</a> and <a a target="_blank" href="https://piped.kavin.rocks">Piped</a>.</p>
+    <select id="yt-embed-choice" name="yt-embed-choice" class="form-select mb-1" aria-label="Choose how would you like to view this content." onchange="updateInstanceField()">
+      <option value="yt-embed" selected>Watch video here (YouTube)</option>
+      <option value="iv-embed">Watch video here (Invidious)</option>
+      <option value="yt-open">Open in YouTube</option>
+      <option value="iv-open">Open in...</option>
+    </select>
+    <div class="mb-1">
+      <div class="input-group">
+        <label for="yt-instance-url" class="input-group-text" id="yt-instance-url-label">Instance URL</label>
+        <input type="text" class="form-control" id="yt-instance-url" aria-describedby="yt-instance-url-label" placeholder="https://youtube.com" required>
+      </div>
+      <div class="form-text">The instance must be accessible under HTTPS.</div>
+    </div>
+    <div class="d-flex align-items-center gap-2">
+      <button class="btn btn-warning" onclick="openButton()">Open</button>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="yt-embed-save-preferences">
+        <label class="form-check-label" for="yt-embed-save-preferences">
+          Apply to all (requires reload)
+        </label>
+      </div>
+    </div>
+  </div>
+  <div id="redirect" class="d-none alert alert-warning bg-body min-vh-100 vw-100 m-0 d-flex flex-column align-items-center justify-content-center">
+    <p id="redirect-text"></p>
+    <button class="btn btn-warning" onclick="cancelButton()">Change Settings</button>
+  </div>
+  <!-- Bootstrap JS for color modes -->
+  <script src="/assets/bootstrap-color-modes.js"></script>
+  <script>
+    const searchParams = new URLSearchParams(window.location.search);
+    const videoId = searchParams.get("id");
+    let redirectTimer = null;
+
+    function initFields() {
+      const embedPreferenceEl = document.getElementById("yt-embed-choice");
+      const instanceUrlEl = document.getElementById("yt-instance-url");
+      const savePreferencesEl = document.getElementById("yt-embed-save-preferences");
+    
+      embedPreferenceEl.value = getCookie("_ham_embed_yt_preference") ?? "yt-embed";
+      instanceUrlEl.value = getCookie("_ham_embed_yt_instance") ?? "https://youtube.com";
+    }
+
+    function updateInstanceField() {
+      const embedPreferenceEl = document.getElementById("yt-embed-choice");
+      const instanceUrlEl = document.getElementById("yt-instance-url");
+      if (embedPreferenceEl.value.startsWith("yt-")) {
+        instanceUrlEl.disabled = true;
+        instanceUrlEl.value = "https://youtube.com";
+      } else {
+        instanceUrlEl.disabled = false;
+        instanceUrlEl.value = "";
+      }
+    }
+
+    function openButton() {
+      const embedPreferenceEl = document.getElementById("yt-embed-choice");
+      const instanceUrlEl = document.getElementById("yt-instance-url");
+      const savePreferencesEl = document.getElementById("yt-embed-save-preferences");
+
+      instanceUrlEl.value.replace(/^(http(s){0,1}):\/\//, "https://")
+
+      if (savePreferencesEl.value == "on") {
+        setCookie("_ham_embed_yt_preference", embedPreferenceEl.value, 30);
+        setCookie("_ham_embed_yt_instance", instanceUrlEl.value, 30);
+        window.location.reload();
+      }
+      redirect(embedPreferenceEl.value, instanceUrlEl.value, true);
+    }
+
+    // Check whether the user has saved preferences.
+    const preference = getCookie("_ham_embed_yt_preference");
+    const instance = getCookie("_ham_embed_yt_instance");
+    const redirectContainerEl = document.getElementById("redirect");
+    const settingsContainerEl = document.getElementById("settings");
+    const redirectTextEl = document.getElementById("redirect-text");
+
+    function cancelButton() {
+      if (redirectTimer) clearTimeout(redirectTimer);
+      redirectContainerEl.classList.add("d-none");
+      settingsContainerEl.classList.remove("d-none");
+    }
+    
+    function redirect(preference, instance, force) {
+      if (preference && instance) {
+        redirectContainerEl.classList.remove("d-none");
+        settingsContainerEl.classList.add("d-none");
+        if (preference.endsWith("-embed")) {
+          redirectTextEl.innerHTML = "Redirecting to <a id=\"redirect-url\" class=\"text-break\"></a>…";
+          const redirectUrlEl = document.getElementById("redirect-url");
+          if (preference.startsWith("yt-")) {
+            redirectUrlEl.innerHTML = redirectUrlEl.href = "https://youtube.com/embed/" + videoId;
+          } else {
+            redirectUrlEl.innerHTML = redirectUrlEl.href = "https://" + instance + "/embed/" + videoId;
+          }
+          redirectTimer = setTimeout(() => {
+            redirectTimer = null;
+            if (preference.startsWith("yt-")) {
+              window.location = "https://youtube.com/embed/" + videoId;
+            } else {
+              window.location = "https://" + instance + "/embed/" + videoId;
+            }
+          }, force ? 0 : 3000);
+        } else {
+          redirectTextEl.innerHTML = "Video content from <a id=\"redirect-url\" class=\"text-break\"></a>";
+          const redirectUrlEl = document.getElementById("redirect-url");
+          if (preference.startsWith("yt-")) {
+            redirectUrlEl.innerHTML = redirectUrlEl.href = "https://youtube.com/watch?v=" + videoId;
+          } else {
+            redirectUrlEl.innerHTML = redirectUrlEl.href = "https://" + instance + "/watch?v=" + videoId;
+          }
+        }
+      }
+    }
+
+    redirect(preference, instance, false);
+    initFields();
+    updateInstanceField();
+  </script>
+</body>
+</html>

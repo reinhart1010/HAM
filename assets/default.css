@@ -22,21 +22,30 @@
   margin-right: 0.5rem;
 }
 
+/* Removes the unnecessary bottom padding on alerts */
+.alert address, .alert dl, .alert ol, .alert p, .alert ul {
+  margin-bottom: 0.5rem;
+}
+
+.alert > :last-child {
+  margin-bottom: 0;
+}
+
 /* Make syntax highlighter */
 .content-wrapper pre {
   word-wrap: normal;
   padding: 20px;
   border-radius: 4px;
-  white-space:pre;
-  transform:translate3d(0, 0, 0);
+  white-space: pre;
+  transform: translate3d(0, 0, 0);
   overflow-x:auto;
-  -webkit-overflow-scrolling:touch;
-  word-wrap:normal;
-  -moz-tab-size:4;
-  -o-tab-size:4;
-  -webkit-tab-size:4;
-  -ms-tab-size:4;
-  tab-size:4;
+  -webkit-overflow-scrolling: touch;
+  word-wrap: normal;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  -webkit-tab-size: 4;
+  -ms-tab-size: 4;
+  tab-size: 4;
 }
 .content-wrapper pre::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.5);

@@ -33,30 +33,43 @@
     <link href="{{ link }}" rel="me" />
   {% endfor %}
 </head>
-<body class="with-custom-webkit-scrollbars with-custom-css-scrollbars" data-dm-shortcut-enabled="true" data-sidebar-shortcut-enabled="true" data-set-preferred-mode-onload="true">
-  {% include search-modal.html %}
+<body class="ps-md-sbwidth" data-dm-shortcut-enabled="true" data-sidebar-shortcut-enabled="true" data-set-preferred-mode-onload="true">
   <div class="page-wrapper with-navbar with-sidebar">
     <div class="sticky-alerts"></div>
-    {% include navbar.html %}
-    {% include sidebar.html %}
+    {% include ham/navbar.html %}
+    {% include ham/sidebar.html %}
     <div class="content-wrapper">
       <div class="container-fluid">
         {{ content }}
       </div>
     </div>
-    {% include footer.html %}
+    {% include ham/footer.html %}
   </div>
 
   <!-- Simple Jekyll Search JS -->
   <script src="{{ site.url }}/assets/simple-jekyll-search.min.js"></script>
   <script>
     var sjs = SimpleJekyllSearch({
-      searchInput: document.getElementById('search-input'),
-      resultsContainer: document.getElementById('results-container'),
-      json: '{{ site.url }}/assets/search.json'
-    })
+      searchInput: document.getElementById('_ham_search_input'),
+      resultsContainer: document.getElementById('_ham_search_results_container'),
+      searchResultTemplate: '<a href="{{ site.url }}{url}" class="list-group-item"><span class="fw-semibold">{title}</span><br><small>{url}</small></a>',
+      limit: 20,
+      noResultsText: 'No results...',
+      json: '{{ site.url }}/assets/search.json',
+    });
+    function updateSearchResultsVisibility (event) {
+      if (event.srcElement.value.length == 0) {
+        document.getElementById('_ham_search_results_container').classList.remove('mt-2');
+      } else {
+        document.getElementById('_ham_search_results_container').classList.add('mt-2');
+      }
+    }
+    document.getElementById('_ham_search_input').addEventListener('change', updateSearchResultsVisibility);
+    document.getElementById('_ham_search_input').addEventListener('input', updateSearchResultsVisibility);
   </script>
   <!-- Halfmoon JS -->
   <script src="{{ site.url }}/assets/halfmoon.min.js"></script>
+  <!-- Bootstrap JS for color modes -->
+  <script src="{{ site.url }}/assets/bootstrap-color-modes.js"></script>
 </body>
 </html>

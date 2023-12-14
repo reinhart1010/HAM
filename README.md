@@ -30,7 +30,11 @@ external_links:
 
 # HAM 🥩
 
+> [!IMPORTANT]
+> 
 > **BREAKING CHANGE:** HAM is currently being upgraded to Halfmoon 2.0, which introduce visual breaking changes. See <https://github.com/reinhart1010/HAM/issues/6>.
+
+{% youtube 0FKaIiRhUME %}
 
 HAM is a Jekyll-based boilerplate template for generating better, static wiki-style websites. HAM can be instantly used to build static wiki pages. But the best of all, the default theme of HAM can be easily customized to create more personalized wiki pages, unlike those from MediaWiki, for example.
 
@@ -127,6 +131,31 @@ ham:
 ```
 
 Note: You can also override the whole favicon settings (either to entirely remove, or adding mobile or browser-specific icon formats) by overriding `_includes/favicon.html`.
+
+### Navigation
+HAM currently provides two navigation areas: the **navigation bar** and the **index** (as on the sidebar).
+
+#### Navigation Bar
+You can freely add items in the navigation bar by modifying `_includes/navbar.html`, including placing additional nested menus, dialogs/modals, and other HTML tags.
+
+#### Sidebar
+Just like the "On This Page" section, you can add custom sections into the sidebar. Note that the configuration is stored **outside** the `ham` section of `_config.yml` (see below example).
+
+```yaml
+ham:
+  # Other HAM configuration here
+data:
+  index:
+    - name: "Customise Me"
+      id: "customize-me"
+      children:
+        - name: "Sample Menu 1"
+          url: "#"
+        - name: "Sample Menu 2"
+          url: "#"
+        - name: "Sample Menu 3"
+          url: "#"
+```
 
 ### Comments
 HAM provides built-in support for Facebook, Giscus, Telegram, and Utteranc.es widgets plugins. However, you can also add your own widgets or links by following these instructions.
