@@ -2,12 +2,10 @@
   <div class="offcanvas-header d-md-none border-bottom border-secondary border-opacity-25">
     <a href="/" class="sidebar-brand">
       {% if site.ham.site_icon != null %}
-        <img src="{{ site.ham.site_icon }}" alt="{{ site.title }}">
+        <img src="{{ site.ham.site_icon }}" alt="{{ site.title }}" width="24" height="24">
       {% endif %}{{ site.title }}
     </a>
-    <button type="button" class="btn-close d-md-none" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#_ham_sidebar">
-      <i class="bi bi-x-lg" aria-description="Close sidebar"></i>
-    </button>
+    <button type="button" class="btn-close d-md-none" aria-label="Close" data-bs-dismiss="offcanvas" data-bs-target="#_ham_sidebar"></button>
   </div>
   <div class="offcanvas-body">
     <div class="mb-3">

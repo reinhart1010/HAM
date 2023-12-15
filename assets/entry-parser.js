@@ -61,12 +61,14 @@ function parseRawEntry(originalContent, onThisPageEntry, siteTitle, siteTagline)
       var newA = document.createElement('a');
       newA.href = '#' + node.id;
       newA.className = 'nav-link text-truncate';
-      newA.setAttribute('onclick', 'expandAccordion(\'' + currentAccordionId + '\')');
+      newA.setAttribute('data-bs-dismiss', 'offcanvas');
+      newA.setAttribute('data-bs-target', '#_ham_sidebar');
+      newA.setAttribute('onclick', 'expandAccordion(\'' + currentAccordionId + '\', \'' + node.id + '\')');
       for (j = 2; j < currentHeadingLevel; j++){
         var newSpan = document.createElement('span');
         if (j == currentHeadingLevel - 1) {
           newSpan.className = 'me-1 d-inline-block text-body-tertiary';
-          newSpan.textContent = '↳';
+          newSpan.innerHTML = '<i class="bi bi-arrow-return-right"></i>';
         } else {
           newSpan.className = 'ms-3 d-inline-block';
         }
@@ -193,9 +195,14 @@ function autoexpandAccordion(){
   }
 }
 
-async function expandAccordion(id){
-  var el = new bootstrap.Collapse(document.getElementById(id + "-content"), {toggle: false});
+async function expandAccordion(collapsibleId, contentId){
+  var el = new bootstrap.Collapse(document.getElementById(collapsibleId + "-content"), {toggle: false});
   await el.show();
+  if (contentId) {
+    location.hash = "";
+    location.hash = "#" + contentId;
+    scrollBy(0, -66);
+  }
 }
 
 window.addEventListener("load", autoexpandAccordion);
