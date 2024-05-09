@@ -30,10 +30,6 @@ external_links:
 
 # HAM 🥩
 
-> [!IMPORTANT]
-> 
-> **BREAKING CHANGE:** HAM is currently being upgraded to Halfmoon 2.0, which introduce visual breaking changes. See <https://github.com/reinhart1010/HAM/issues/6>.
-
 HAM is a Jekyll-based boilerplate template for generating better, static wiki-style websites. HAM can be instantly used to build static wiki pages. But the best of all, the default theme of HAM can be easily customized to create more personalized wiki pages, unlike those from MediaWiki, for example.
 
 This project is built to replace the current, MediaWiki installation at <hackapedia.reinhart1010.id> after I found out difficult to create custom styles for it, while other, Git-based alternatives such as GitHub Wiki sucks (no, really) and may not support self-hosting on shared hosting providers.
@@ -111,6 +107,10 @@ layout: page
 However, as of 0.1.6 `jekyll-optional-front-matter` has been included and configured by default to remove this requirement, which allows easier content migration for future wikis.
 
 ## Configuration
+> [!IMPORTANT]
+> 
+> **BREAKING CHANGE:** HAM is currently being upgraded to Halfmoon 2.0, which introduce visual breaking changes. See <https://github.com/reinhart1010/HAM/issues/6>.
+
 HAM also introduces additional configuration which you can set on your `_config.yml`:
 
 ### Site Identity
