@@ -66,6 +66,13 @@ We believe that everyone should be able to theme HAM websites according to their
 
 {% youtube 0FKaIiRhUME %}
 
+<pre class="mermaid">
+  graph TD
+  A[Client] --> B[Load Balancer]
+  B --> C[Server01]
+  B --> D[Server02]
+</pre>
+
 ## Usage
 ### For [GitHub Pages](https://pages.github.com)
 If you would like to add this theme into your GitHub Pages website, please just add the following on your `_config.yml`
@@ -90,7 +97,7 @@ gem "minima"
 on your `Gemfile` with
 
 ```gemspec
-gem "jekyll-ham", "~> 0.3.3"
+gem "jekyll-ham", "~> 1.1.0"
 ```
 
 Also don't forget to change the `theme` configuration on your `_config.yml` to `jekyll-ham` instead of `minima`.
@@ -280,7 +287,9 @@ Copyright (c) 2021-2023 Reinhart Previano Koentjoro.
 
 This project is distributed under MIT License, and also uses the following open-source components:
 
-+ Bootstrap Icons (<https://github.com/twbs/icons>) - Copyright (c) 2019-2023 The Bootstrap Authors, MIT License
++ Bootstrap Icons (<https://github.com/twbs/icons>) - Copyright (c) 2019-2024 The Bootstrap Authors, MIT License
 + Halfmoon (<https://github.com/halfmoonui/halfmoon>) - Copyright (c) 2020 Halfmoon UI, MIT License
++ Mermaid (<https://github.com/annexare/toURI>) - Copyright (c) 2014-2024 Knut Sveidqvist, MIT License
 + OneDarkJekyll (<https://github.com/mgyongyosi/OneDarkJekyll>) - Copyright (c) 2016 Mihály Gyöngyösi, MIT License
 + Simple-Jekyll-Search (<https://github.com/christian-fei/Simple-Jekyll-Search>) - Copyright (c) 2015 Christian Fei, MIT License
++ toURI (<https://github.com/annexare/toURI>) - Copyright (c) 2014 Annexare Studio, MIT License

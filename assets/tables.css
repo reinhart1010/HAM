@@ -1,0 +1,23 @@
+/* Utility stylesheet for rendering tables */
+
+table:not([data-ham-ignore="true"]) {
+  border-collapse: collapse;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+table:not([data-ham-ignore="true"]) td, table:not([data-ham-ignore="true"]) th {
+  padding: 0.5rem;
+}
+
+table:not([data-ham-ignore="true"]) thead {
+  background: var(--bs-primary-bg-subtle);
+}
+
+table:not([data-ham-ignore="true"]) tr {
+  border-bottom: solid 1px var(--bs-primary-700);
+}
+
+[data-bs-theme="dark"] table:not([data-ham-ignore="true"]) tr {
+  border-bottom: solid 1px var(--bs-primary-300);
+}

@@ -71,5 +71,10 @@
   <script src="{{ site.url }}/assets/halfmoon.min.js"></script>
   <!-- Bootstrap JS for color modes -->
   <script src="{{ site.url }}/assets/bootstrap-color-modes.js"></script>
+  <!-- Load Mermaid Diagrams -->
+  <script type="module">
+    import mermaid from "{{ site.url }}/assets/mermaid.esm.min.js";
+    mermaid.initialize({ startOnLoad: true });
+  </script>
 </body>
 </html>
