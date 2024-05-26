@@ -289,7 +289,7 @@ This project is distributed under MIT License, and also uses the following open-
 
 + Bootstrap Icons (<https://github.com/twbs/icons>) - Copyright (c) 2019-2024 The Bootstrap Authors, MIT License
 + Halfmoon (<https://github.com/halfmoonui/halfmoon>) - Copyright (c) 2020 Halfmoon UI, MIT License
-+ Mermaid (<https://github.com/annexare/toURI>) - Copyright (c) 2014-2024 Knut Sveidqvist, MIT License
++ Mermaid (<https://github.com/mermaid-js/mermaid>) - Copyright (c) 2014-2024 Knut Sveidqvist, MIT License
 + OneDarkJekyll (<https://github.com/mgyongyosi/OneDarkJekyll>) - Copyright (c) 2016 Mihály Gyöngyösi, MIT License
 + Simple-Jekyll-Search (<https://github.com/christian-fei/Simple-Jekyll-Search>) - Copyright (c) 2015 Christian Fei, MIT License
 + toURI (<https://github.com/annexare/toURI>) - Copyright (c) 2014 Annexare Studio, MIT License
