@@ -97,7 +97,7 @@ gem "minima"
 on your `Gemfile` with
 
 ```gemspec
-gem "jekyll-ham", "~> 1.1.0"
+gem "jekyll-ham", "~> 1.1.1"
 ```
 
 Also don't forget to change the `theme` configuration on your `_config.yml` to `jekyll-ham` instead of `minima`.
